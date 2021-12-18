@@ -20,10 +20,11 @@ RUN npm run build \
   && npm prune --production
 
 FROM node:16-alpine
+WORKDIR /
 RUN apk add --no-cache tini
 COPY --from=builder action/package.json .
 COPY --from=builder action/build build/
 COPY --from=builder action/node_modules node_modules/
-COPY entrypoint.sh entrypoint.sh
+COPY entrypoint.sh .
 ENTRYPOINT [ "entrypoint.sh" ]
 #ENTRYPOINT [ "/sbin/tini", "--", "node", "/build/index.js" ]
