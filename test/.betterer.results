@@ -1,0 +1,13 @@
+// BETTERER RESULTS V2.
+// 
+// If this file contains merge conflicts, use `betterer merge` to automatically resolve them:
+// https://phenomnomnominal.github.io/betterer/docs/results-file/#merge
+//
+exports[`stricter typescript compilation`] = {
+  value: `{
+    "test/test-files/test-file-1.ts:1417337104": [
+      [0, 14, 2, "Parameter \'a1\' implicitly has an \'any\' type.", "5860981"],
+      [8, 14, 2, "Parameter \'a3\' implicitly has an \'any\' type.", "5860983"]
+    ]
+  }`
+};

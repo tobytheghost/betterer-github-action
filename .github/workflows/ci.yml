@@ -1,0 +1,26 @@
+name: CI
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install
+        uses: ./
+        with:
+          args: yarn install
+      - name: Build
+        uses: ./
+        with:
+          args: yarn build
+      - name: Test
+        uses: ./
+        with:
+          args: yarn test

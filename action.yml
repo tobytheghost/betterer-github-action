@@ -1,15 +1,13 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: Betterer ChatOps
+description: ChatOps helper for Betterer tool
+author: Evilweed <fake-email@asdadasasd.com>
+branding:
+  icon: book-open
+  color: blue
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  name:
     required: true
-    default: 'World'
-outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+    description: Name to greet
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
-  args:
-    - ${{ inputs.who-to-greet }}
+  using: docker
+  image: Dockerfile

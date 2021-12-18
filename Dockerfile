@@ -1,8 +1,27 @@
-# Container image that runs your code
-FROM alpine:3.10
+#FROM node:16-alpine
+#
+#COPY ["entrypoint.sh", "package.json", "./"]
+#
+#RUN npm install
+#
+#COPY . .
+#
+#COPY entrypoint.sh /entrypoint.sh
+#
+#ENTRYPOINT ["/entrypoint.sh"]
 
-# Copies your code file from your action repository to the filesystem path `/` of the container
-COPY entrypoint.sh /entrypoint.sh
+FROM node:16-alpine AS builder
+WORKDIR /action
+COPY package*.json ./
+RUN npm ci
+COPY tsconfig*.json ./
+COPY src/ src/
+RUN npm run build \
+  && npm prune --production
 
-# Code file to execute when the docker container starts up (`entrypoint.sh`)
-ENTRYPOINT ["/entrypoint.sh"]
+FROM node:16-alpine
+RUN apk add --no-cache tini
+COPY --from=builder action/package.json .
+COPY --from=builder action/build build/
+COPY --from=builder action/node_modules node_modules/
+ENTRYPOINT [ "/sbin/tini", "--", "node", "/build/index.js" ]
