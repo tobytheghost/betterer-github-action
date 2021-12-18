@@ -24,5 +24,6 @@ RUN apk add --no-cache tini
 COPY --from=builder action/package.json .
 COPY --from=builder action/build build/
 COPY --from=builder action/node_modules node_modules/
-ENTRYPOINT [ "/bin/bash" ]
+COPY entrypoint.sh action/entrypoint.sh
+ENTRYPOINT [ "action/entrypoint.sh" ]
 #ENTRYPOINT [ "/sbin/tini", "--", "node", "/build/index.js" ]
