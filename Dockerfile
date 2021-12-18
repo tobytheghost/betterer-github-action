@@ -12,9 +12,9 @@
 
 FROM node:16-alpine AS builder
 WORKDIR /action
-COPY package*.json ./
+COPY package.json ./
 RUN npm ci
-COPY tsconfig*.json ./
+COPY tsconfig.json ./
 COPY src/ src/
 RUN npm run build \
   && npm prune --production
