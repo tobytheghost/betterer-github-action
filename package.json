@@ -2,7 +2,7 @@
     "name": "betterer-github-action",
     "version": "1.0.0",
     "main": "index.js",
-    "license": "Open Source",
+    "license": "MIT",
     "private": false,
     "scripts": {
         "build": "rm -rf build && tsc --project tsconfig.json",

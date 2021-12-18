@@ -13,7 +13,7 @@
 FROM node:16-alpine AS builder
 WORKDIR /action
 COPY package.json ./
-RUN npm ci
+RUN yarn install
 COPY tsconfig.json ./
 COPY src/ src/
 RUN npm run build \
