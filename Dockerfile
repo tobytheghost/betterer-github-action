@@ -26,6 +26,6 @@ COPY --from=builder action/package.json .
 COPY --from=builder action/build build/
 COPY --from=builder action/node_modules node_modules/
 COPY entrypoint.sh .
-ENTRYPOINT [ "sh -c", "yarn betterer" ]
+ENTRYPOINT [ "/bin/sh -c", "yarn betterer" ]
 #ENTRYPOINT [ "/entrypoint.sh" ]
 #ENTRYPOINT [ "/sbin/tini", "--", "node", "/build/index.js" ]
