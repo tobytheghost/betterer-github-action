@@ -23,9 +23,4 @@ jobs:
       - name: Test
         uses: ./
         with:
-          inputs:
-            numOctocats:
-              description: 'Number of Octocats'
-              required: false
-              default: '1'
           args: --config test/.betterer --results test/.betterer.results --reporter build/reporter.js

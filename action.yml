@@ -8,6 +8,10 @@ inputs:
   name:
     required: true
     description: Name to greet
+  numOctocats:
+    description: 'Number of Octocats'
+    required: false
+    default: '1'
 runs:
   using: docker
   image: Dockerfile
