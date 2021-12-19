@@ -5,3 +5,5 @@ time=$(date)
 echo ::set-output name=time::$time
 
 npm run betterer
+
+# asd
