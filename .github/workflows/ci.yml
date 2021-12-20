@@ -17,7 +17,7 @@ jobs:
       - name: Test
         uses: ./
         with:
-          args: ls && cat package.json && cd node_modules && ls && cd @betterer && ls
+          args: ls
       - name: Install
         uses: ./
         with:
