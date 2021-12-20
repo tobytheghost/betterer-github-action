@@ -25,4 +25,4 @@ jobs:
       - name: Test
         uses: ./
         with:
-          args: "--config test/.betterer --results test/.betterer.results --reporter build/reporter.js"
+          args: "--config test/.betterer --results test/.betterer.results --reporter /build/reporter.js"
