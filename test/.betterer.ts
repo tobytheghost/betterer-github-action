@@ -11,5 +11,5 @@ export default {
             strictFunctionTypes: true,
             strictPropertyInitialization: false,
             useDefineForClassFields: false,
-        }).include('test-files/*.ts'),
+        }).include('test/test-files/*.ts'),
 }
