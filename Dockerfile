@@ -8,7 +8,7 @@ RUN yarn run build
 
 FROM node:16-alpine
 WORKDIR /
-RUN apk add --no-cache tini
+RUN apk add --no-cache tini git
 COPY --from=builder package.json .
 COPY --from=builder build build/
 COPY --from=builder node_modules node_modules/
