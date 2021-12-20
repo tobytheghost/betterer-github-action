@@ -27,6 +27,6 @@ jobs:
         uses: ./
         with:
           args: --config /github/workspace/test/.betterer --results /github/workspace/test/.betterer-should-pass.results --reporter /build/reporter.js
-      - name: Fail if test-that-should-fail passed
+      - name: Fail if test-that-should-pass passed
         if: steps.test-that-should-pass.outputs.status == 'failure'
         run: exit 1
