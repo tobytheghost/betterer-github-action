@@ -17,10 +17,6 @@ jobs:
       - name: Test
         uses: ./
         with:
-          args: ls
-      - name: Install
-        uses: ./
-        with:
           args: --config test/.betterer --results test/.betterer.results --reporter build/reporter.js
       - name: Build
         uses: ./
