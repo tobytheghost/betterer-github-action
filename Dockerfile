@@ -14,4 +14,5 @@ COPY --from=builder build build/
 COPY --from=builder node_modules node_modules/
 COPY entrypoint.sh .
 
-ENTRYPOINT [ "/sbin/tini", "--", "yarn", "run", "betterer" ]
+ENTRYPOINT [ "/sbin/tini", "--" ]
+# "yarn", "run", "betterer"
