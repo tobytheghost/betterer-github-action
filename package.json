@@ -1,25 +1,25 @@
 {
-    "name": "betterer-github-action",
-    "version": "1.0.0",
-    "main": "index.js",
-    "license": "MIT",
-    "private": false,
-    "scripts": {
-        "build": "rm -rf build && tsc --project tsconfig.json",
-        "betterer": "betterer",
-        "test": "yarn build && yarn run betterer --config test/.betterer --results test/.betterer.results --reporter build/reporter.js"
-    },
-    "engines": {
-        "node": "16"
-    },
-    "devDependencies": {
-        "@betterer/cli": "5.1.5",
-        "@betterer/regexp": "5.1.5",
-        "@betterer/tsquery": "5.1.5",
-        "@betterer/typescript": "5.1.5",
-        "typescript": "^4"
-    },
-    "dependencies": {
-        "@actions/core": "^1.6.0"
-    }
+  "name": "betterer-github-action",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "build": "rm -rf build && tsc --project tsconfig.json",
+    "betterer": "betterer",
+    "test": "yarn build && yarn run betterer --config test/.betterer --results test/.betterer.results --reporter build/reporter.js"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "devDependencies": {
+    "@betterer/cli": "5.1.5",
+    "@betterer/regexp": "5.1.5",
+    "@betterer/tsquery": "5.1.5",
+    "@betterer/typescript": "5.1.5",
+    "typescript": "^4"
+  },
+  "dependencies": {
+    "@actions/core": "^1.6.0"
+  }
 }
