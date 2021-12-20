@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - run: ls
+      - run: cat package.json
       - name: Install
         uses: ./
         with:
