@@ -1,7 +1,7 @@
 name: betterer-github-action
-description: "It's a Betterer with custom reporter"
+description: "It's a Betterer runner with custom minimal reporter"
 branding:
-  icon: "command"
+  icon: "bar-chart"
   color: "red"
 runs:
   using: "docker"
