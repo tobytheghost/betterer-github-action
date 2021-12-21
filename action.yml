@@ -1,4 +1,4 @@
-name: 'Betterer'
+name: 'Betterer Runner'
 description: 'Betterer with custom reporter'
 branding:
   icon: 'command'
@@ -14,5 +14,3 @@ outputs:
 runs:
   using: 'docker'
   image: 'docker://evilweed88/betterer-github-action:latest'
-
-#  main: 'Dockerfile'
