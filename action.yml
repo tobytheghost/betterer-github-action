@@ -1,5 +1,8 @@
 name: 'Betterer'
 description: 'Betterer with custom reporter'
+branding:
+  icon: 'command'
+  color: 'red'
 inputs:
   milliseconds:  # id of input
     description: 'number of milliseconds to wait'
@@ -10,6 +13,6 @@ outputs:
     description: 'The message to output'
 runs:
   using: 'docker'
-  image: 'evilweed88/betterer-github-action:tagname'
+  image: 'docker://evilweed88/betterer-github-action:latest'
 
 #  main: 'Dockerfile'
