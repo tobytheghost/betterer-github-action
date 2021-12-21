@@ -1,0 +1,32 @@
+name: Test live docker action
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Test that should fail
+        id: test-that-should-fail
+        continue-on-error: true
+        uses: Evilweed/betterer-github-action@main
+        with:
+          args: --config /github/workspace/test/.betterer --results /github/workspace/test/.betterer.results --reporter /build/reporter.js
+      - name: Fail if test-that-should-fail passed
+        if: steps.test-that-should-fail.outputs.status == 'success'
+        run: exit 1
+      - name: Test that should pass
+        id: test-that-should-pass
+        continue-on-error: true
+        uses: Evilweed/betterer-github-action@main
+        with:
+          args: --config /github/workspace/test/.betterer --results /github/workspace/test/.betterer-should-pass.results --reporter /build/reporter.js
+      - name: Fail if test-that-should-pass passed
+        if: steps.test-that-should-pass.outputs.status == 'failure'
+        run: exit 1
