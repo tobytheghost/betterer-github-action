@@ -7,8 +7,8 @@
   "scripts": {
     "build": "rm -rf build && tsc --project tsconfig.json",
     "betterer": "betterer",
-    "test": "yarn build && yarn run betterer --config test/.betterer --results test/.betterer.results --reporter build/reporter.js",
-    "test-backup": "yarn build && yarn run betterer --config test/.betterer --results test/.betterer.results --reporter build/reporter.js"
+    "test": "yarn build && yarn run betterer --config test/.betterer --results test/.betterer.results --reporter build/custom-simple-reporter.js",
+    "test-backup": "yarn build && yarn run betterer --config test/.betterer --results test/.betterer.results --reporter build/custom-simple-reporter.js"
   },
   "engines": {
     "node": "16"
