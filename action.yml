@@ -1,4 +1,4 @@
-name: betterer-runner-custom
+name: betterer-github-action
 description: "It's a Betterer with custom reporter"
 branding:
   icon: "command"
