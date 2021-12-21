@@ -10,4 +10,6 @@ outputs:
     description: 'The message to output'
 runs:
   using: 'docker'
-  main: 'Dockerfile'
+  image: 'evilweed88/betterer-github-action:tagname'
+
+#  main: 'Dockerfile'
