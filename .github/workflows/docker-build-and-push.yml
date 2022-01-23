@@ -25,6 +25,7 @@ jobs:
           context: .
           push: true
           tags: evilweed88/betterer-github-action:latest
+          update_command: "ts:update"
 
 #      - name: Push
 #        uses: docker/build-push-action@v1

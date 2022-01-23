@@ -34,6 +34,10 @@ function brightRed(message) {
     return `\x1b[1m\x1b[31m${message}\x1b[0m`
 }
 
+function yellow(message) {
+    return `\x1b[33m${message}\x1b[0m`
+}
+
 exports.reporter = createReporter()
 
 function createReporter() {
@@ -145,9 +149,11 @@ function createReporter() {
                 log(red(
                     `If however you do not have time right now to fix those issues, you can regenerate "betterer.results" file to include your newly introduced errors, and make Betterer check green.`
                 ))
-                log(red(
-                    `To do that, add "betterer:update" comment in your Pull Request, and CI bot will update the results file, commit it to your PR, and notify you. \n`
-                ))
+                log(
+                    red(`To do that, add `) +
+                    yellow("${process.env.INPUT_UPDATE_COMMAND}") +
+                    red(`comment in your Pull Request, and CI bot will update the results file, commit it to your PR, and notify you. \n`)
+                )
             }
 
             return new Promise((resolve) => resolve(true))

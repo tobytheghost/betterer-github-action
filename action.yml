@@ -3,6 +3,11 @@ description: "It's a Betterer runner with custom minimal reporter"
 branding:
   icon: "bar-chart"
   color: "red"
+inputs:
+  update_command:  # Command that triggers betterer.results file update
+    description: "Command that triggers betterer.results file update"
+    required: true
+    default: "betterer:update"
 runs:
   using: "docker"
   image: "docker://evilweed88/betterer-github-action:latest"

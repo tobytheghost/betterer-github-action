@@ -16,3 +16,4 @@ jobs:
         uses: Evilweed/betterer-github-action@main
         with:
           args: --config /github/workspace/test/.betterer --results /github/workspace/test/.betterer.results --reporter /build/custom-simple-reporter.js
+          update_command: "ts:update"
