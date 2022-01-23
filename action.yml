@@ -7,7 +7,7 @@ inputs:
   update_command:  # Command that triggers betterer.results file update
     description: "Command that triggers betterer.results file update"
     required: true
-    default: "ts:update"
+    default: "betterer:update"
 runs:
   using: "docker"
   image: "docker://evilweed88/betterer-github-action:latest"
