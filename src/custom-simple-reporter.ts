@@ -151,7 +151,7 @@ function createReporter() {
                 ))
                 log(
                     red(`To do that, add `) +
-                    yellow("${process.env.INPUT_UPDATE_COMMAND}") +
+                    yellow(`${process.env.INPUT_UPDATE_COMMAND}`) +
                     red(`comment in your Pull Request, and CI bot will update the results file, commit it to your PR, and notify you. \n`)
                 )
             }
