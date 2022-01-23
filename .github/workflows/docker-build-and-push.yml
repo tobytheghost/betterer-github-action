@@ -26,12 +26,3 @@ jobs:
           push: true
           tags: evilweed88/betterer-github-action:latest
           update_command: "ts:update"
-
-#      - name: Push
-#        uses: docker/build-push-action@v1
-#        with:
-#          username: ${{ secrets.DOCKER_LOGIN }}
-#          password: ${{ secrets.DOCKER_PASSWORD }}
-#          repository: ianwalter/puppeteer # change
-#          tags: latest
-#          tag_with_ref: true
