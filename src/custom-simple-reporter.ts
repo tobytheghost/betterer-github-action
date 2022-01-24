@@ -2,6 +2,8 @@
 Object.defineProperty(exports, '__esModule', {value: true})
 exports.reporter = void 0
 
+const githubCore = require("@actions/core")
+
 function good(message) {
     return `\x1b[32m\-\x1b[0m ${message}`
 }
@@ -101,7 +103,7 @@ function createReporter() {
             const hasFixed = changesSummaryList.fixed.length
             const hasNew = changesSummaryList.new.length
 
-            const fixedIssuesCount = changesSummaryList.fixed.length || '0'
+            const fixedIssuesCount = changesSummaryList.fixed.length || 0
             log(" ")
             log(bright(`✅ Fixed issues ( ${fixedIssuesCount} )`))
             log("")
@@ -117,7 +119,7 @@ function createReporter() {
 
             currentProblemTestName = null
 
-            const newIssuesCount = changesSummaryList.new.length || '0'
+            const newIssuesCount = changesSummaryList.new.length || 0
             log(bright(`🔥 New issues ( ${newIssuesCount} )`))
             log("")
 
@@ -129,6 +131,9 @@ function createReporter() {
                 log(red(`          ${problem.filePath}:${problem.lineNumber}`))
                 log("")
             })
+
+            githubCore.setOutput("new_issues_count", newIssuesCount)
+            githubCore.setOutput("fixed_issues_count", fixedIssuesCount)
 
 
             if( hasFixed || hasNew )

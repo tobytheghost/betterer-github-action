@@ -16,9 +16,16 @@ Stay tuned.
 
 ## Outputs
 
-### `time`
+### `new_issues_count`
 
-The time we greeted you.
+Amount of newly introduced issues.
+
+### `fixed_issues_count`
+
+Amount of fixed issues.
+
+## Custom reporter
+If you prefer original betterer reporter, please remove `--reporter /build/custom-simple-reporter.js` from args.
 
 ## Example usage
 
@@ -36,10 +43,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Test that should fail
+      - name: Run betterer
+        id: betterer
         uses: Evilweed/betterer-github-action@main
         with:
           args: --config /github/workspace/test/.betterer --results /github/workspace/test/.betterer.results --reporter /build/custom-simple-reporter.js
           chatops_results_file_update_command: "ts:update"
           betterer_results_file_name: "betterer.results"
+      - run: echo "There are {{ steps.betterer.outputs.new_issues_count }} new issues introduced!"
+      - run: echo "There are {{ steps.betterer.outputs.fixed_issues_count }} issues fixed!"
 ```

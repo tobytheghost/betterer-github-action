@@ -4,14 +4,19 @@ branding:
   icon: "bar-chart"
   color: "red"
 inputs:
-  chatops_results_file_update_command:  # Command that triggers betterer.results file update
+  chatops_results_file_update_command:
     description: "Command that triggers betterer.results file update"
     required: true
     default: "betterer:update"
-  betterer_results_file_name:  # Command that triggers betterer.results file update
+  betterer_results_file_name:
     description: "Name or path of \"betterer.results\" file"
     required: true
     default: "betterer.results"
+outputs:
+  fixed_issues_count:
+    description: "Amount of fixed issues"
+  new_issues_count:
+    description: "Amount of newly introduced issues"
 runs:
   using: "docker"
   image: "docker://evilweed88/betterer-github-action:latest"

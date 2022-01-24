@@ -20,6 +20,8 @@ jobs:
           args: --config /github/workspace/test/.betterer --results /github/workspace/test/.betterer.results --reporter /build/custom-simple-reporter.js
           chatops_results_file_update_command: "ts:update"
           betterer_results_file_name: "betterer.results"
+      - run: echo "There are {{ steps.test-that-should-fail.outputs.new_issues_count }} new issues introduced!"
+      - run: echo "There are {{ steps.test-that-should-fail.outputs.fixed_issues_count }} issues fixed!"
       - name: Fail if test-that-should-fail passed
         if: steps.test-that-should-fail.outputs.status == 'success'
         run: exit 1
@@ -29,6 +31,8 @@ jobs:
         uses: ./
         with:
           args: --config /github/workspace/test/.betterer --results /github/workspace/test/.betterer-should-pass.results --reporter /build/custom-simple-reporter.js
+      - run: echo "There are {{ steps.test-that-should-pass.outputs.new_issues_count }} new issues introduced!"
+      - run: echo "There are {{ steps.test-that-should-pass.outputs.fixed_issues_count }} issues fixed!"
       - name: Fail if test-that-should-pass passed
         if: steps.test-that-should-pass.outputs.status == 'failure'
         run: exit 1
