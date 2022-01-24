@@ -25,5 +25,3 @@ jobs:
           context: .
           push: true
           tags: evilweed88/betterer-github-action:latest
-          chatops_results_file_update_command: "ts:update"
-          betterer_results_file_name: "betterer.results"
