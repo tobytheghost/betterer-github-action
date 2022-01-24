@@ -135,9 +135,11 @@ function createReporter() {
             githubCore.setOutput("new_issues_count", newIssuesCount)
             githubCore.setOutput("fixed_issues_count", fixedIssuesCount)
 
-
-            if( hasFixed || hasNew )
+            if( hasFixed || hasNew ) {
+                githubCore.setFailed(`Changes detected. Fixed issues ${fixedIssuesCount}. New issues ${newIssuesCount}. Please update ${process.env.INPUT_BETTERER_RESULTS_FILE_NAME} file!`)
                 log(bright(`RESULTS`))
+            }
+
 
             hasFixed && log(good(brightGreen(`✅ You have fixed \`${fixedIssuesCount}\` issues!`)))
 
