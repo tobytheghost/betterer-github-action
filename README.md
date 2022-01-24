@@ -52,6 +52,6 @@ jobs:
           args: --config /github/workspace/test/.betterer --results /github/workspace/test/.betterer.results --reporter /build/custom-simple-reporter.js
           chatops_results_file_update_command: "ts:update"
           betterer_results_file_name: "betterer.results"
-      - run: echo "There are {{ steps.betterer.outputs.new_issues_count }} new issues introduced!"
-      - run: echo "There are {{ steps.betterer.outputs.fixed_issues_count }} issues fixed!"
+      - run: echo {{ steps.betterer.outputs.new_issues_count }}
+      - run: echo {{ steps.betterer.outputs.fixed_issues_count }}
 ```
