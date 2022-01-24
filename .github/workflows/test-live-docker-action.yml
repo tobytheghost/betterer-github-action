@@ -15,6 +15,7 @@ jobs:
       - name: Test that should fail
         id: betterer
         uses: Evilweed/betterer-github-action@main
+        continue-on-error: true
         with:
           args: --config /github/workspace/test/.betterer --results /github/workspace/test/.betterer.results --reporter /build/custom-simple-reporter.js
           chatops_results_file_update_command: "ts:update"
