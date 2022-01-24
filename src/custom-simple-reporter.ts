@@ -160,7 +160,7 @@ function createReporter() {
                 )
                 log(
                     red(`To do that, add "`) +
-                    brightYellow(`${process.env.INPUT_CHATOPS_RESULTS_FILE_INPUT_UPDATE_COMMAND}`) +
+                    brightYellow(`${process.env.INPUT_CHATOPS_RESULTS_FILE_UPDATE_COMMAND}`) +
                     red(`" comment in your Pull Request, and CI bot will update the results file, commit it to your PR, and notify you. \n`)
                 )
             }
