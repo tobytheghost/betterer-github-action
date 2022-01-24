@@ -18,7 +18,8 @@ jobs:
         uses: ./
         with:
           args: --config /github/workspace/test/.betterer --results /github/workspace/test/.betterer.results --reporter /build/custom-simple-reporter.js
-          update_command: "ts:update"
+          chatops_results_file_update_command: "ts:update"
+          betterer_results_file_name: "betterer.results"
       - name: Fail if test-that-should-fail passed
         if: steps.test-that-should-fail.outputs.status == 'success'
         run: exit 1

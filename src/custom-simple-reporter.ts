@@ -146,12 +146,14 @@ function createReporter() {
                 log(brightRed(`\nCase: You can fix issues`))
                 log(red(`Use the list above, and go back to code and fix the detected issues.`))
                 log(brightRed(`\nCase: You don't have time to fix issues`))
-                log(red(
-                    `If however you do not have time right now to fix those issues, you can regenerate "betterer.results" file to include your newly introduced errors, and make Betterer check green.`
-                ))
+                log(
+                    red(`If however you do not have time right now to fix those issues, you can regenerate "`) +
+                    brightYellow(`${process.env.INPUT_BETTERER_RESULTS_FILE_NAME}`) +
+                    red(`" file to include your newly introduced errors, and make Betterer check green.`)
+                )
                 log(
                     red(`To do that, add "`) +
-                    brightYellow(`${process.env.INPUT_UPDATE_COMMAND}`) +
+                    brightYellow(`${process.env.INPUT_CHATOPS_RESULTS_FILE_INPUT_UPDATE_COMMAND}`) +
                     red(`" comment in your Pull Request, and CI bot will update the results file, commit it to your PR, and notify you. \n`)
                 )
             }

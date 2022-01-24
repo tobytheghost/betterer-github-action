@@ -1,12 +1,18 @@
-# Hello world docker action
+# Betterer docker github action
 
-This action prints "Hello World" to the log or "Hello" + the name of a person to greet. To learn how this action was built, see "[Creating a Docker container action](https://help.github.com/en/articles/creating-a-docker-container-action)" in the GitHub Help documentation.
+This action runs Betterer on Github Actions, and informs User how important Typescript migration is, and suggests fixing the offences, or suggests using ChatOps command to update `betterer.results` file.
+This repository does not contain ChatOps functionality yet.
+Stay tuned.
 
 ## Inputs
 
-### `who-to-greet`
+### `chatops_results_file_update_command`
 
-**Required** The name of the person to greet. Default `"World"`.
+**Required** Name of ChatOps command used to automatically update `betterer.results` file with new state. This input is only used to inform user in error messages. You need to implement chatops functionality yourself. Default `"betterer:update"`.
+
+### `betterer_results_file_name`
+
+**Required** Name of the `betterer.results` file or path to it. This input is only used to display error message. Default `"betterer.results"`.
 
 ## Outputs
 
@@ -34,4 +40,6 @@ jobs:
         uses: Evilweed/betterer-github-action@main
         with:
           args: --config /github/workspace/test/.betterer --results /github/workspace/test/.betterer.results --reporter /build/custom-simple-reporter.js
+          chatops_results_file_update_command: "ts:update"
+          betterer_results_file_name: "betterer.results"
 ```

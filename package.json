@@ -7,7 +7,7 @@
   "scripts": {
     "build": "rm -rf build && tsc --project tsconfig.json",
     "betterer": "betterer",
-    "test": "yarn build && INPUT_UPDATE_COMMAND=\"betterer:update\" yarn run betterer --config test/.betterer --results test/.betterer.results --reporter build/custom-simple-reporter.js",
+    "test": "yarn build && INPUT_CHATOPS_RESULTS_FILE_INPUT_UPDATE_COMMAND=\"betterer:update\" yarn run betterer --config test/.betterer --results test/.betterer.results --reporter build/custom-simple-reporter.js",
     "test-backup": "yarn build && yarn run betterer --config test/.betterer --results test/.betterer.results --reporter build/custom-simple-reporter.js"
   },
   "engines": {

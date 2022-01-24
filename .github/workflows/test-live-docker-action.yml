@@ -16,4 +16,5 @@ jobs:
         uses: Evilweed/betterer-github-action@main
         with:
           args: --config /github/workspace/test/.betterer --results /github/workspace/test/.betterer.results --reporter /build/custom-simple-reporter.js
-          update_command: "ts:update"
+          chatops_results_file_update_command: "ts:update"
+          betterer_results_file_name: "betterer.results"
