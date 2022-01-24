@@ -4,6 +4,8 @@ This action runs Betterer on Github Actions, and informs User how important Type
 This repository does not contain ChatOps functionality yet.
 Stay tuned.
 
+![Demo image](./documentation/demo-image.png)
+
 ## Inputs
 
 ### `chatops_results_file_update_command`
