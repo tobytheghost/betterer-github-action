@@ -5,13 +5,13 @@ branding:
   color: "red"
 inputs:
   chatops_results_file_update_command:
-    description: "Command that triggers betterer.results file update"
+    description: "Command that triggers .betterer.results file update"
     required: true
     default: "betterer:update"
   betterer_results_file_name:
-    description: "Name or path of \"betterer.results\" file"
+    description: "Name or path of \".betterer.results\" file"
     required: true
-    default: "betterer.results"
+    default: ".betterer.results"
 outputs:
   fixed_issues_count:
     description: "Amount of fixed issues"
