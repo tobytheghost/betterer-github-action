@@ -26,27 +26,27 @@ function log(message) {
 }
 
 function bright(message) {
-    return `\x1b[1m${message}\x1b[0m`
+    return `\x1b[1m${message}\x1b[0m\x1b[49m\x1b[39m`
 }
 
 function green(message) {
-    return `\x1b[32m${message}\x1b[0m`
+    return `\x1b[32m${message}\x1b[0m\x1b[49m\x1b[39m`
 }
 
 function brightGreen(message) {
-    return `\x1b[1m\x1b[32m${message}\x1b[0m`
+    return `\x1b[1m\x1b[32m${message}\x1b[0m\x1b[49m\x1b[39m`
 }
 
 function red(message) {
-    return `\x1b[31m${message}\x1b[0m`
+    return `\x1b[31m${message}\x1b[0m\x1b[49m\x1b[39m`
 }
 
 function brightRed(message) {
-    return `\x1b[1m\x1b[31m${message}\x1b[0m`
+    return `\x1b[1m\x1b[31m${message}\x1b[0m\x1b[49m\x1b[39m`
 }
 
 function brightYellow(message) {
-    return `\x1b[1m\x1b[33m${message}\x1b[0m`
+    return `\x1b[1m\x1b[33m${message}\x1b[0m\x1b[49m\x1b[39m`
 }
 
 exports.reporter = createReporter()
@@ -196,23 +196,25 @@ function createReporter() {
                 log(brightRed(`\n🔷 Case: You don't have time to fix issues`))
                 log(
                     red(`If however you do not have time right now to fix those issues, you can regenerate `) +
-                    brightYellow(`"${bettererResultsFilePath}" file to include your newly introduced errors, and make Betterer check green.`)
+                    brightYellow(`"${bettererResultsFilePath}"`) +
+                    red(` file to include your newly introduced errors, and make Betterer check green.`)
                 )
                 log(
                     red(`To do that, add `) +
-                    brightYellow(`"${chatopsResultsFileUpdateCommand}" comment in your Pull Request, and CI bot will update the results file, commit it to your PR, and notify you. \n`)
+                    brightYellow(`"${chatopsResultsFileUpdateCommand}"`) +
+                    red(` comment in your Pull Request, and CI bot will update the results file, commit it to your PR, and notify you. \n`)
                 )
             }
             if (hasFixed && !hasNew) {
                 log(
-                    brightRed(`\n🔷 Case: Please update the `) +
+                    red(`\n🔷 Case: Please update the `) +
                     brightYellow(`"${bettererResultsFilePath}"`) +
-                    brightRed(`file to save state of good changes`)
+                    red(`file to save state of good changes`)
                 )
                 log(
                     red(`Every time there are good or bad changes detected, it is necessary to update `) +
-                    brightYellow(`"${bettererResultsFilePath}"`) +
-                    brightRed(` file so that this new state is .`)
+                    brightGreen(`"${bettererResultsFilePath}"`) +
+                    red(` file so that this new state is .`)
                 )
                 log(
                     red(`To do that, add`) +
