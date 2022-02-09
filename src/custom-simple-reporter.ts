@@ -177,8 +177,8 @@ function createReporter() {
             log(bad(brightRed(`🔥 You have added \`${newIssuesCount}\` issues!\n\n`)))
 
             log(
-                `Config file with TypeSript rule overrides: ` +
-                brightYellow(`"${bettererConfigFilePath}"`)
+                `🛠 Config file with TypeScript rule overrides: ` +
+                brightYellow(`"${bettererConfigFilePath}"\n\n`)
             )
 
             if (hasNew) {
@@ -187,9 +187,9 @@ function createReporter() {
                     `We are trying to migrate to strict TypeScript to dramatically reduce amount of issues we ship with our code. To achieve this goal we need to keep our better every day. Please take this into account and try to fix the TypeScript issues you have added now.`
                 ))
 
-                log(brightRed(`\nCase: You can fix issues`))
+                log(brightRed(`\n🔷 Case: You can fix issues`))
                 log(red(`Use the list above, and go back to code and fix the detected issues.`))
-                log(brightRed(`\nCase: You don't have time to fix issues`))
+                log(brightRed(`\n🔷 Case: You don't have time to fix issues`))
                 log(
                     red(`If however you do not have time right now to fix those issues, you can regenerate `) +
                     brightYellow(`"${bettererResultsFilePath}" file to include your newly introduced errors, and make Betterer check green.`)
@@ -200,12 +200,15 @@ function createReporter() {
                 )
             }
             if (hasFixed && !hasNew) {
-                log(brightRed(`\nCase: Please update the `) +
-                    brightYellow(`"${bettererResultsFilePath}" file to save state of good changes`)
+                log(
+                    brightRed(`\n🔷 Case: Please update the `) +
+                    brightYellow(`"${bettererResultsFilePath}"`) +
+                    brightRed(`file to save state of good changes`)
                 )
                 log(
                     red(`Every time there are good or bad changes detected, it is necessary to update `) +
-                    brightYellow(`"${bettererResultsFilePath}" file so that this new state is .`)
+                    brightYellow(`"${bettererResultsFilePath}"`) +
+                    brightRed(` file so that this new state is .`)
                 )
                 log(
                     red(`To do that, add`) +
