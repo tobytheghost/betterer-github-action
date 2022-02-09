@@ -142,6 +142,9 @@ function createReporter() {
             const hasFixed = fixedIssuesCount
             const hasNew = newIssuesCount
 
+            githubCore.setOutput('fixed_issues_count', fixedIssuesCount);
+            githubCore.setOutput('new_issues_count', newIssuesCount);
+
             log(" ")
             log(bright(`✅ Fixed issues ( ${fixedIssuesCount} )`))
             log("")
