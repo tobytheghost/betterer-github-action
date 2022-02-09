@@ -50,8 +50,11 @@ jobs:
         uses: Evilweed/betterer-github-action@main
         with:
           args: --config /github/workspace/test/.betterer --results /github/workspace/test/.betterer.results --reporter /build/custom-simple-reporter.js
-          chatops_results_file_update_command: "ts:update"
-          betterer_results_file_name: ".betterer.results"
+          PROJECT_NAME: "platform"
+          CHATOPS_RESULTS_FILE_UPDATE_COMMAND: 'platform:betterer:update'
+          BETTERER_CONFIG_FILE_PATH: "platform/.betterer"
+          BETTERER_RESULTS_FILE_NAME: ".betterer.results"
+          BETTERER_RESULTS_FILE_PATH: "platform/.betterer.results"
       - run: echo {{ steps.betterer.outputs.new_issues_count }}
       - run: echo {{ steps.betterer.outputs.fixed_issues_count }}
 ```

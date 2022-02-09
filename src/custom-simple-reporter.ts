@@ -187,6 +187,7 @@ function createReporter() {
                     `We are trying to migrate to strict TypeScript to dramatically reduce amount of issues we ship with our code. To achieve this goal we need to keep our better every day. Please take this into account and try to fix the TypeScript issues you have added now.`
                 ))
 
+                log(bright(`WHAT CAN I DO NOW?`))
                 log(brightRed(`\n🔷 Case: You can fix issues`))
                 log(red(`Use the list above, and go back to code and fix the detected issues.`))
                 log(brightRed(`\n🔷 Case: You don't have time to fix issues`))
