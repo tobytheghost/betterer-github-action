@@ -4,6 +4,10 @@ on:
     tags:
       - 'v*'
   workflow_dispatch:
+
+env:
+  FORCE_COLOR: '1'
+
 jobs:
   push:
     runs-on: ubuntu-latest
