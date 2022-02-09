@@ -5,11 +5,11 @@ exports.reporter = void 0
 const githubCore = require("@actions/core")
 
 
-const projectName = process.env.INPUT_PROJECT_NAME
-const chatopsResultsFileUpdateCommand = process.env.INPUT_CHATOPS_RESULTS_FILE_UPDATE_COMMAND
-const bettererConfigFilePath = process.env.INPUT_BETTERER_CONFIG_FILE_PATH
-const bettererResultsFileName = process.env.INPUT_BETTERER_RESULTS_FILE_NAME
-const bettererResultsFilePath = process.env.INPUT_BETTERER_RESULTS_FILE_PATH
+const projectName = process.env.INPUT_PROJECT_NAME || process.env.PROJECT_NAME
+const chatopsResultsFileUpdateCommand = process.env.INPUT_CHATOPS_RESULTS_FILE_UPDATE_COMMAND || process.env.INPUT_CHATOPS_RESULTS_FILE_UPDATE_COMMAND
+const bettererConfigFilePath = process.env.INPUT_BETTERER_CONFIG_FILE_PATH || process.env.INPUT_BETTERER_CONFIG_FILE_PATH
+const bettererResultsFileName = process.env.INPUT_BETTERER_RESULTS_FILE_NAME || process.env.INPUT_BETTERER_RESULTS_FILE_NAME
+const bettererResultsFilePath = process.env.INPUT_BETTERER_RESULTS_FILE_PATH || process.env.INPUT_BETTERER_RESULTS_FILE_PATH
 
 
 
