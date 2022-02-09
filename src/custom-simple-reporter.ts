@@ -214,15 +214,19 @@ function createReporter() {
                 )
             }
             if (hasFixed && !hasNew) {
+                log(bright(`WHAT I HAVE TO DO NOW?`))
                 log(
-                    red(`\n🔷 Case: Please update the `) +
+                    brightRed(`\n🔷 Case: Betterer results file needs to be updated`)
+                )
+                log(
+                    red(`Please update the `) +
                     brightYellow(`"${bettererResultsFilePath}"`) +
-                    red(` file to save state of good changes`)
+                    red(` file to save state of good changes\n`)
                 )
                 log(
                     red(`Every time there are good or bad changes detected, it is necessary to update `) +
-                    brightGreen(`"${bettererResultsFilePath}"`) +
-                    red(` file so that this new state is .`)
+                    brightYellow(`"${bettererResultsFilePath}"`) +
+                    red(` file so that this new state is saved to repository.\n`)
                 )
                 log(
                     red(`To do that, add `) +
