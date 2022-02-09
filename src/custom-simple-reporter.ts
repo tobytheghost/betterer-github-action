@@ -2,7 +2,12 @@
 Object.defineProperty(exports, '__esModule', {value: true})
 exports.reporter = void 0
 
-const githubCore = require("@actions/core")
+
+let githubCore
+try {
+    githubCore = require("@actions/core")
+} catch (e) {}
+
 
 
 const projectName = process.env.INPUT_PROJECT_NAME || process.env.PROJECT_NAME
@@ -142,8 +147,11 @@ function createReporter() {
             const hasFixed = fixedIssuesCount
             const hasNew = newIssuesCount
 
-            githubCore.setOutput('fixed_issues_count', fixedIssuesCount);
-            githubCore.setOutput('new_issues_count', newIssuesCount);
+            try {
+                githubCore.setOutput('fixed_issues_count', fixedIssuesCount);
+                githubCore.setOutput('new_issues_count', newIssuesCount);
+            } catch (e) {}
+
 
             log(" ")
             log(bright(`✅ Fixed issues ( ${fixedIssuesCount} )`))
@@ -209,7 +217,7 @@ function createReporter() {
                 log(
                     red(`\n🔷 Case: Please update the `) +
                     brightYellow(`"${bettererResultsFilePath}"`) +
-                    red(`file to save state of good changes`)
+                    red(` file to save state of good changes`)
                 )
                 log(
                     red(`Every time there are good or bad changes detected, it is necessary to update `) +
@@ -217,9 +225,9 @@ function createReporter() {
                     red(` file so that this new state is .`)
                 )
                 log(
-                    red(`To do that, add`) +
+                    red(`To do that, add `) +
                     brightYellow(`"${chatopsResultsFileUpdateCommand}"`) +
-                    red(`comment in your Pull Request, and CI bot will update the results file, commit it to your PR, and notify you. \n`)
+                    red(` comment in your Pull Request, and CI bot will update the results file, commit it to your PR, and notify you. \n`)
                 )
             }
 
