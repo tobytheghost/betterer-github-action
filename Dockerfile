@@ -19,5 +19,7 @@ RUN yarn global add @betterer/regexp@5.1.5
 RUN yarn global add @betterer/tsquery@5.1.5
 RUN yarn global add @betterer/typescript@5.1.5
 
-ENTRYPOINT [ "/sbin/tini", "--", "yarn", "run", "betterer" ]
+ENTRYPOINT [ "/entrypoint.sh" ]
+#ENTRYPOINT [ "/sbin/tini", "--" , "/node_modules/@betterer/cli/bin/betterer" ]
+#ENTRYPOINT [ "/sbin/tini", "--" , "yarn", "run", "betterer" ]
 # "yarn", "run", "betterer"
