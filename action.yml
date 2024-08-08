@@ -13,6 +13,8 @@ inputs:
     required: true
     default: ".betterer.results"
 outputs:
+  total_issues_count:
+    description: "Amount of total issues"
   fixed_issues_count:
     description: "Amount of fixed issues"
   new_issues_count:

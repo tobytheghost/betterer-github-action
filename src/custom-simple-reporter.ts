@@ -136,6 +136,8 @@ function createReporter() {
       let fixedIssuesCount = changesSummaryList.fixed.length || 0;
       const newIssuesCount = changesSummaryList.new.length || 0;
 
+      const totalIssuesCount = changesSummaryList.existing.length || 0;
+
       if (isOnlyBetter && deltaDiff < 0) {
         fixedIssuesCount = Math.abs(deltaDiff);
       }
@@ -146,6 +148,7 @@ function createReporter() {
       try {
         githubCore.setOutput("fixed_issues_count", fixedIssuesCount);
         githubCore.setOutput("new_issues_count", newIssuesCount);
+        githubCore.setOutput("total_issues_count", totalIssuesCount);
       } catch (e) {}
 
       log(" ");
