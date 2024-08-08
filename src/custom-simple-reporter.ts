@@ -149,7 +149,9 @@ function createReporter() {
         githubCore.setOutput("fixed_issues_count", fixedIssuesCount);
         githubCore.setOutput("new_issues_count", newIssuesCount);
         githubCore.setOutput("total_issues_count", totalIssuesCount);
-      } catch (e) {}
+      } catch (e) {
+        console.error(e);
+      }
 
       log(" ");
       log(bright(`✅ Fixed issues ( ${fixedIssuesCount} )`));
@@ -170,7 +172,9 @@ function createReporter() {
 
       try {
         githubCore.setOutput("fixed_issues", fixedResults.join("\n"));
-      } catch (e) {}
+      } catch (e) {
+        console.error(e);
+      }
 
       currentProblemTestName = null;
 
@@ -192,7 +196,9 @@ function createReporter() {
 
       try {
         githubCore.setOutput("new_issues", newIssues.join("\n"));
-      } catch (e) {}
+      } catch (e) {
+        console.error(e);
+      }
 
       if (hasFixed || hasNew) log(bright(`RESULTS`));
 
