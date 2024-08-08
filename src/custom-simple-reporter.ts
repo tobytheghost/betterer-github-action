@@ -166,7 +166,7 @@ function createReporter() {
       });
 
       try {
-        githubCore.setOutput("fixed_results", fixedResults.join("\n"));
+        githubCore.setOutput("fixed_issues", fixedResults.join("\n"));
       } catch (e) {}
 
       currentProblemTestName = null;
