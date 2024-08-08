@@ -159,6 +159,10 @@ function createReporter() {
         setOutput("fixed_issues_count", fixedIssuesCount);
         setOutput("new_issues_count", newIssuesCount);
         setOutput("total_issues_count", totalIssuesCount);
+
+        console.log("fixed_issues_count", fixedIssuesCount);
+        console.log("new_issues_count", newIssuesCount);
+        console.log("total_issues_count", totalIssuesCount);
       } catch (e) {
         console.error(e);
       }
@@ -182,6 +186,7 @@ function createReporter() {
 
       try {
         setOutput("fixed_issues", fixedResults.join("\n"));
+        console.log("fixed_issues", fixedResults.join("\n"));
       } catch (e) {
         console.error(e);
       }
@@ -206,6 +211,7 @@ function createReporter() {
 
       try {
         setOutput("new_issues", newIssues.join("\n"));
+        console.log("new_issues", newIssues.join("\n"));
       } catch (e) {
         console.error(e);
       }
