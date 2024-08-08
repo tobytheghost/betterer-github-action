@@ -2,10 +2,20 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.reporter = void 0;
 
+let os;
+let fs;
 let githubCore;
 try {
+  os = require("os");
+  fs = require("fs");
   githubCore = require("@actions/core");
 } catch (e) {}
+
+function setOutput(key, value) {
+  // Temporary hack until core actions library catches up with github new recommendations
+  const output = process.env["GITHUB_OUTPUT"];
+  fs.appendFileSync(output, `${key}=${value}${os.EOL}`);
+}
 
 const projectName = process.env.INPUT_PROJECT_NAME || process.env.PROJECT_NAME;
 const chatopsResultsFileUpdateCommand =
@@ -146,9 +156,9 @@ function createReporter() {
       const hasNew = newIssuesCount;
 
       try {
-        githubCore.setOutput("fixed_issues_count", fixedIssuesCount);
-        githubCore.setOutput("new_issues_count", newIssuesCount);
-        githubCore.setOutput("total_issues_count", totalIssuesCount);
+        setOutput("fixed_issues_count", fixedIssuesCount);
+        setOutput("new_issues_count", newIssuesCount);
+        setOutput("total_issues_count", totalIssuesCount);
       } catch (e) {
         console.error(e);
       }
@@ -171,7 +181,7 @@ function createReporter() {
       });
 
       try {
-        githubCore.setOutput("fixed_issues", fixedResults.join("\n"));
+        setOutput("fixed_issues", fixedResults.join("\n"));
       } catch (e) {
         console.error(e);
       }
@@ -195,7 +205,7 @@ function createReporter() {
       });
 
       try {
-        githubCore.setOutput("new_issues", newIssues.join("\n"));
+        setOutput("new_issues", newIssues.join("\n"));
       } catch (e) {
         console.error(e);
       }
