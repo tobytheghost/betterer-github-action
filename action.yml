@@ -17,6 +17,10 @@ outputs:
     description: "Amount of fixed issues"
   new_issues_count:
     description: "Amount of newly introduced issues"
+  fixed_issues:
+    description: "List of fixed issues"
+  new_issues:
+    description: "List of newly introduced issues"
 runs:
   using: "docker"
   image: "docker://evilweed88/betterer-github-action:latest"
