@@ -25,4 +25,4 @@ outputs:
     description: "List of newly introduced issues"
 runs:
   using: "docker"
-  image: "docker://tobytheghost/betterer-github-action:latest"
+  image: "docker://evilweed88/betterer-github-action:latest"
